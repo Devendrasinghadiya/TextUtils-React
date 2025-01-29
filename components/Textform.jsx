@@ -213,6 +213,8 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-2 mb-2 mb-md-0" type="button" onClick={handleClearClick}>Clear Text</button>
         <button className="btn btn-primary mx-2 mb-2" type="button" onClick={handleCopy}>Copy Text</button>
                 <button className="btn btn-primary mx-2 mb-2" type="button" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+                <button className="btn btn-primary mx-2 mb-2" type="button" onClick={FirstWordCapital}>FirstWordCapital</button>
+
               </div>
               <div className="container" style={{ color: props.mode === 'dark' ? 'white' : '#042743' }}>
                 <h1>Your text summary</h1>
