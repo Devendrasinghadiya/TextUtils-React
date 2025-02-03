@@ -202,24 +202,24 @@ export default function TextForm(props) {
             className="form-control"
             value={text}
             onChange={handleOnChange}
-            style={{ backgroundColor: props.mode === 'dark' ? 'grey' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}
+            style={{ backgroundColor: props.mode === 'dark' ? '#80808040' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}
             id="myBox"
             rows="8"
             placeholder="Enter Text here"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2" type="button" onClick={handleUpClick}>Convert to UpperCase</button>
-        <button className="btn btn-primary mx-2" type="button" onClick={handleLoClick}>Convert to LowerCase</button>
-        <button className="btn btn-primary mx-2 mb-2 mb-md-0" type="button" onClick={handleClearClick}>Clear Text</button>
-        <button className="btn btn-primary mx-2 mb-2" type="button" onClick={handleCopy}>Copy Text</button>
-                <button className="btn btn-primary mx-2 mb-2" type="button" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
-                <button className="btn btn-primary mx-2 mb-2" type="button" onClick={FirstWordCapital}>FirstWordCapital</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" type="button" onClick={handleUpClick}>Convert to UpperCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" type="button" onClick={handleLoClick}>Convert to LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 mb-2 mb-md-0 my-2" type="button" onClick={handleClearClick}>Clear Text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 mb-2 my-2" type="button" onClick={handleCopy}>Copy Text</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 mb-2 my-2" type="button" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 mb-2 my-2" type="button" onClick={FirstWordCapital}>FirstWordCapital</button>
 
               </div>
               <div className="container" style={{ color: props.mode === 'dark' ? 'white' : '#042743' }}>
-                <h1>Your text summary</h1>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
-                <p>{0.008 * text.split(" ").length} Minutes read</p>
+                <h1 className="mb-2">Your text summary</h1>
+                <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+                <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : "Enter something in the textbox above to preview it here"}</p>
               </div>
